@@ -123,6 +123,8 @@ class AwsAutoScaler(AutoScaler):
             launch_specification["SecurityGroupIds"] = resource_conf[
                 "security_group_ids"
             ]
+        if resource_conf.get("subnet_id", None):
+            launch_specification["SubnetId"] = resource_conf["subnet_id"]
 
         if resource_conf["is_spot"]:
             # Create a request for a spot instance in AWS
