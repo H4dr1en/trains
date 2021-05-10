@@ -161,7 +161,8 @@ class AwsAutoScaler(AutoScaler):
             )
 
             print("launch_specification", flush=True)
-            print(launch_specification)
+            print(launch_specification.as_plain_ordered_dict())
+            print(dict(launch_specification))
             exit()
             # instances = ec2.run_instances(**launch_specification)
 
