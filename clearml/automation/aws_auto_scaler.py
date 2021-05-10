@@ -160,6 +160,7 @@ class AwsAutoScaler(AutoScaler):
                 launch_specification, resource_conf.get("extra_configurations", {})
             )
 
+            print("launch_specification", flush=True)
             print(launch_specification)
 
             instances = ec2.run_instances(**launch_specification)
