@@ -162,8 +162,8 @@ class AwsAutoScaler(AutoScaler):
 
             print("launch_specification", flush=True)
             print(launch_specification)
-
-            instances = ec2.run_instances(**launch_specification)
+            exit()
+            # instances = ec2.run_instances(**launch_specification)
 
             # Get the instance object for later use
             instance_id = instances["Instances"][0]["InstanceId"]
