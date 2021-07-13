@@ -50,8 +50,8 @@ class AwsAutoScaler(AutoScaler):
         "export CLEARML_API_SECRET_KEY='{secret_key}'",
         "source ~/.bashrc",
         "{bash_script}",
-        "python -m clearml_agent --config-file '/root/clearml.conf' daemon --queue '{queue}' {docker}",
-        "shutdown",
+        "python -m clearml_agent --config-file '/root/clearml.conf' daemon --queue '{queue}' {docker}"
+        # "shutdown",
     ]
 
     def __init__(self, settings, configuration):
