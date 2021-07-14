@@ -27,8 +27,7 @@ class AwsAutoScaler(AutoScaler):
 
     startup_bash_script = [
         "#!/bin/bash",
-        # Wait for locks to be released
-        "while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do sleep 5; done;"
+        "sleep 30",  # Wait for locks to be released
         "sudo apt-get update",
         "sudo apt-get install -y python3-dev",
         "sudo apt-get install -y python3-pip",
