@@ -27,6 +27,8 @@ class AwsAutoScaler(AutoScaler):
 
     startup_bash_script = [
         "#!/bin/bash",
+        # Wait for locks to be released
+        "while sudo fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do sleep 5; done;"
         "sudo apt-get update",
         "sudo apt-get install -y python3-dev",
         "sudo apt-get install -y python3-pip",
@@ -50,8 +52,7 @@ class AwsAutoScaler(AutoScaler):
         "export CLEARML_API_SECRET_KEY='{secret_key}'",
         "source ~/.bashrc",
         "{bash_script}",
-        "python -m clearml_agent --config-file '/root/clearml.conf' daemon --queue '{queue}' {docker}",
-        "shutdown",
+        "python -m clearml_agent --config-file '/root/clearml.conf' daemon --queue '{queue}' {docker}"
     ]
 
     def __init__(self, settings, configuration):
