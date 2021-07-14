@@ -51,7 +51,6 @@ class AwsAutoScaler(AutoScaler):
         "source ~/.bashrc",
         "{bash_script}",
         "python -m clearml_agent --config-file '/root/clearml.conf' daemon --queue '{queue}' {docker}"
-        # "shutdown",
     ]
 
     def __init__(self, settings, configuration):
