@@ -27,7 +27,7 @@ class AwsAutoScaler(AutoScaler):
 
     startup_bash_script = [
         "#!/bin/bash",
-        "while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do echo 'Waiting for other instances of apt to complete...'; sleep 5; done",
+        # "while sudo fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1; do echo 'Waiting for other instances of apt to complete...'; sleep 5; done",
         "sudo apt-get update",
         "sudo apt-get install -y python3-dev",
         "sudo apt-get install -y python3-pip",
